@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vaishnavi Tandel | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* ===== GLOBAL ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #0a1220;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-padding-top: 80px;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #0f1b2c;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    nav h1 {
+      color: #ffb400;
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0%;
+      height: 2px;
+      background: #ffb400;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      min-height: 100vh;
+      padding: 100px 10%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      color: #ffb400;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+
+    /* ===== ABOUT SECTION ===== */
+    .about {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .profile-pic {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 5px solid transparent;
+      background: linear-gradient(45deg, #ffb400, #ff6b6b, #00c6ff, #ffb400);
+      background-size: 400%;
+      animation: borderAnimation 5s linear infinite;
+      overflow: hidden;
+    }
+
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .project-card:hover{
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(255, 180, 0, 0.3);
+    }
+
+    @keyframes borderAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .about p {
+      max-width: 700px;
+      line-height: 1.7;
+      color: #ccc;
+    }
+    /* Skills */
+    #skills {
+        padding: 4rem 1rem;
+        text-align: center;
+        background-color: #0e1627;
+    }
+    #skills h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        color: #ffb400;
+    }
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .skill-card {
+        background-color: #16243a;
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .skill-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(255, 180, 0, 0.3);
+    }
+    .skill-card h3 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        color: #f97316;
+    }
+
+
+    /* ===== PROJECTS ===== */
+    .projects {
+      background: #0e1627;
+    }
+
+    .project-card {
+      background: #16243a;
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 10px;
+      width: 280px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(255, 180, 0, 0.3);
+    }
+
+    .project-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .project-card h3 {
+      color: #ffb400;
+      margin-bottom: 10px;
+    }
+
+    .project-card a {
+      color: #00c6ff;
+      text-decoration: none;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact-section {
+      background: linear-gradient(180deg, #1b2b38, #0f1b24);
+      color: #ffffff;
+      padding: 100px 20px 60px;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      color: #ffb400;
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+      font-weight: 700;
+    }
+
+    .contact-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 100px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .contact-left,
+    .contact-right {
+      text-align: left;
+      min-width: 250px;
+    }
+
+    .contact-left p,
+    .contact-right p {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      color: #ddd;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-section a {
+      color: #ffb400;
+      text-decoration: none;
+    }
+
+    .contact-section a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 0.95rem;
+      color: #aaa;
+    }
+
+    .contact-section i {
+      color: #ffb400;
+      font-size: 1.2rem;
+    }
+
+    /* ===== KEYFRAMES ===== */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <h1>Vaishnavi Tandel</h1>
+    <ul>
+      
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HOME -->
+  
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="profile-pic">
+      <img src="vaish image.jpg" alt="Profile Photo">
+    </div>
+    <h2>About Me</h2>
+    <p>I'm a dedicated full-stack developer with strong problem-solving skills and a creative approach to design. I love combining logic and creativity to build user-friendly applications that make a difference.</p>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="skills">
+    <h2>My Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h3>Frontend</h3>
+      <ul class="skills-list">
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>Bootstrap</li>
+        <li>Tailwind CSS</li>
+      </ul>
+    </div>
+
+    <div class="skill-card">
+      <h3>Backend</h3>
+      <ul class="skills-list">
+        <li>Node.js</li>
+        <li>Express.js</li>
+      </ul>
+    </div>
+
+    <div class="skill-card">
+      <h3>Database</h3>
+      <ul class="skills-list">
+        <li>MongoDB</li>
+        <li>MySQL</li>
+      </ul>
+    </div>
+ <div class="skill-card">
+      <h3>Tools</h3>
+      <ul class="skills-list">
+        <li>Git</li>
+        <li>GitHub</li>
+        <li>Postman</li>
+        <li>Figma</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <div class="project-list">
+      <div class="project-card">
+        <h3>Comic Book Management System</h3>
+        <p>Full-stack MERN app to allowing users to seamlessly manage comic book records.</p>
+        <a href="https://book-management-frontend-n9ni.onrender.com/">GitHub</a>
+      </div>
+      <div class="project-card">
+        <h3>Inventory Management System</h3>
+        <p>Web app to product tracking, stock management, category-wise dashboard, and a responsive user interface.</p>
+        <a href="https://github.com/VaishnaviTandel/Inventory-managment-system">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <h2>Contact Me</h2>
+    <div class="contact-container">
+      <div class="contact-left">
+        <p><i class="fas fa-phone"></i> <strong>Mobile:</strong> +91 8970351744</p>
+        <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vaishnavitandel/" target="_blank">www.linkedin.com/in/Vaishnavitandel</a></p>
+      </div>
+      <div class="contact-right">
+        <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:vaishnavitandel@gmail.com">vaishu.tandel0501@gmail.com</a></p>
+        <p><i class="fab fa-github"></i> <strong>GitHub:</strong> <a href="https://github.com/VaishnaviTandel" target="_blank">github.com/VaishnaviTandel</a></p>
+      </div>
+    </div>
+    <footer>
+      <p>© 2025 Vaishnavi. All rights reserved.</p>
+    </footer>
+  </section>
+
+  <!-- JS for fade animation -->
+  <script>
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
