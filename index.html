@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vaishnavi Tandel | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#0a1220;
+color:white;
+overflow-x:hidden;
+}
+
+/* ===== Animated Background ===== */
+
+body::before{
+content:'';
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(120deg,#0a1220,#16243a,#0a1220);
+background-size:400% 400%;
+animation:bgAnimation 12s ease infinite;
+z-index:-2;
+}
+
+@keyframes bgAnimation{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+/* ===== Navbar ===== */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:#0f1b2c;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 80px;
+z-index:1000;
+}
+
+nav h1{
+color:#ffb400;
+font-size:1.8rem;
+}
+
+nav ul{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+nav ul li a{
+color:white;
+text-decoration:none;
+font-weight:500;
+position:relative;
+}
+
+nav ul li a::after{
+content:'';
+position:absolute;
+bottom:-6px;
+left:0;
+width:0%;
+height:2px;
+background:#ffb400;
+transition:.3s;
+}
+
+nav ul li a:hover::after{
+width:100%;
+}
+
+/* ===== Sections ===== */
+
+section{
+min-height:100vh;
+padding:120px 10%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+section.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+h2{
+color:#ffb400;
+margin-bottom:30px;
+font-size:2.5rem;
+}
+
+/* ===== Hero Section ===== */
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+.hero h1{
+font-size:3rem;
+margin-bottom:10px;
+}
+
+.hero span{
+color:#ffb400;
+}
+
+.typing{
+font-size:1.3rem;
+color:#ccc;
+height:30px;
+}
+
+/* ===== Profile ===== */
+
+.profile{
+width:180px;
+height:180px;
+border-radius:50%;
+overflow:hidden;
+margin-bottom:20px;
+border:5px solid #ffb400;
+animation:float 4s ease-in-out infinite;
+}
+
+.profile img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+}
+
+/* ===== Skills ===== */
+
+.skills-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+max-width:1000px;
+}
+
+.skill-card{
+background:#16243a;
+padding:25px;
+border-radius:15px;
+transition:.3s;
+}
+
+.skill-card:hover{
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 10px 25px rgba(255,180,0,0.3);
+}
+
+.skill-card h3{
+color:#ffb400;
+margin-bottom:10px;
+}
+
+.skill-card ul{
+list-style:none;
+color:#ddd;
+line-height:1.8;
+}
+
+/* ===== Projects ===== */
+
+.projects{
+background:#0e1627;
+}
+
+.project-list{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+}
+
+.project-card{
+background:#16243a;
+padding:25px;
+border-radius:15px;
+width:280px;
+transition:.3s;
+}
+
+.project-card:hover{
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 10px 25px rgba(255,180,0,0.3);
+}
+
+.project-card h3{
+color:#ffb400;
+margin-bottom:10px;
+}
+
+.project-card a{
+color:#00c6ff;
+text-decoration:none;
+}
+
+/* ===== Contact ===== */
+
+.contact-section{
+background:linear-gradient(#1b2b38,#0f1b24);
+}
+
+.contact-container{
+display:flex;
+gap:80px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.contact-container p{
+margin:10px 0;
+color:#ddd;
+}
+
+.contact-container a{
+color:#ffb400;
+text-decoration:none;
+}
+
+/* ===== Footer ===== */
+
+footer{
+margin-top:40px;
+color:#aaa;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+<h1>Vaishnavi Tandel</h1>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+<h1>Hello, I'm <span>Vaishnavi</span></h1>
+<div class="typing" id="typing"></div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+<div class="profile">
+<img src="vaish image.jpg">
+</div>
+
+<h2>About Me</h2>
+
+<p>
+I am a passionate Full-Stack Developer skilled in building modern web applications
+using MERN Stack. I enjoy solving real-world problems and creating clean,
+user-friendly interfaces with smooth animations and responsive design.
+</p>
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<h2>My Skills</h2>
+
+<div class="skills-grid">
+
+
+  <div class="skill-card">
+<h3>Languages</h3>
+<ul>
+<li>C</li>
+<li>C++</li>
+<li>Python</li>
+</ul>
+</div>
+<div class="skill-card">
+<h3>Frontend</h3>
+<ul>
+<li>HTML5</li>
+<li>CSS3</li>
+<li>JavaScript</li>
+<li>React</li>
+<li>Tailwind CSS</li>
+</ul>
+</div>
+
+<div class="skill-card">
+<h3>Backend</h3>
+<ul>
+<li>Node.js</li>
+<li>Express.js</li>
+</ul>
+</div>
+
+<div class="skill-card">
+<h3>Database</h3>
+<ul>
+<li>MongoDB</li>
+<li>MySQL</li>
+</ul>
+</div>
+
+<div class="skill-card">
+<h3>Tools</h3>
+<ul>
+<li>Git</li>
+<li>GitHub</li>
+<li>Postman</li>
+<li>Figma</li>
+</ul>
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects" class="projects">
+
+<h2>Projects</h2>
+
+<div class="project-list">
+<div class="project-card">
+<h3>Multimodal copd prediction</h3>
+<p>Multimodal framework for early copd prediction and severity classification</p>
+</div>
+
+
+<div class="project-card">
+<h3>Inventory Management System</h3>
+<p>Stock management system with dashboard and product tracking.</p>
+<a href="https://github.com/VaishnaviTandel/Inventory-managment-system">GitHub</a>
+</div>
+<div class="project-card">
+<h3>Trekking Website</h3>
+<p>Responsive website for a trekking company with booking functionality.</p>
+<a href="https://github.com/VaishnaviTandel/Trekking-Website">GitHub</a>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact-section">
+
+<h2>Contact Me</h2>
+
+<div class="contact-container">
+
+<div>
+<p>📞 +91 8970351744</p>
+<p>📧 vaishu.tandel0501@gmail.com</p>
+</div>
+
+<div>
+<p>
+LinkedIn:
+<a href="https://www.linkedin.com/in/vaishnavitandel/">Profile</a>
+</p>
+
+<p>
+GitHub:
+<a href="https://github.com/VaishnaviTandel">Repository</a>
+</p>
+</div>
+
+</div>
+
+<footer>
+© 2026 Vaishnavi Tandel
+</footer>
+
+</section>
+
+<script>
+
+/* ===== Scroll Animation ===== */
+
+const sections=document.querySelectorAll("section")
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("visible")
+}
+})
+},{threshold:0.2})
+
+sections.forEach(section=>{
+observer.observe(section)
+})
+
+/* ===== Typing Animation ===== */
+
+const text=[
+"Full Stack Developer",
+"MERN Stack Developer",
+"Web Application Builder",
+"Creative Problem Solver"
+]
+
+let i=0
+let j=0
+let current=""
+let isDeleting=false
+
+function type(){
+
+current=text[i]
+
+if(isDeleting){
+j--
+}else{
+j++
+}
+
+document.getElementById("typing").textContent=current.substring(0,j)
+
+if(!isDeleting && j===current.length){
+isDeleting=true
+setTimeout(type,1200)
+return
+}
+
+if(isDeleting && j===0){
+isDeleting=false
+i++
+if(i===text.length){
+i=0
+}
+}
+
+setTimeout(type,isDeleting?50:100)
+
+}
+
+type()
+
+</script>
+
+</body>
+</html>
