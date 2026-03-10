@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Vaishnavi Tandel | Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -24,7 +23,7 @@ color:white;
 overflow-x:hidden;
 }
 
-/* ===== Animated Background ===== */
+/* Animated Background */
 
 body::before{
 content:'';
@@ -45,7 +44,7 @@ z-index:-2;
 100%{background-position:0% 50%}
 }
 
-/* ===== Navbar ===== */
+/* Navbar */
 
 nav{
 position:fixed;
@@ -92,7 +91,7 @@ nav ul li a:hover::after{
 width:100%;
 }
 
-/* ===== Sections ===== */
+/* Sections */
 
 section{
 min-height:100vh;
@@ -118,7 +117,7 @@ margin-bottom:30px;
 font-size:2.5rem;
 }
 
-/* ===== Hero Section ===== */
+/* Hero */
 
 .hero{
 height:100vh;
@@ -143,7 +142,7 @@ color:#ccc;
 height:30px;
 }
 
-/* ===== Profile ===== */
+/* Profile */
 
 .profile{
 width:180px;
@@ -166,7 +165,7 @@ object-fit:cover;
 50%{transform:translateY(-15px)}
 }
 
-/* ===== Skills ===== */
+/* Skills */
 
 .skills-grid{
 display:grid;
@@ -198,7 +197,7 @@ color:#ddd;
 line-height:1.8;
 }
 
-/* ===== Projects ===== */
+/* Projects */
 
 .projects{
 background:#0e1627;
@@ -234,7 +233,7 @@ color:#00c6ff;
 text-decoration:none;
 }
 
-/* ===== Contact ===== */
+/* Contact */
 
 .contact-section{
 background:linear-gradient(#1b2b38,#0f1b24);
@@ -257,19 +256,112 @@ color:#ffb400;
 text-decoration:none;
 }
 
-/* ===== Footer ===== */
+/* Footer */
 
 footer{
 margin-top:40px;
 color:#aaa;
 }
 
+/* Tablet */
+
+@media (max-width:1024px){
+
+nav{
+padding:15px 40px;
+}
+
+.hero h1{
+font-size:2.4rem;
+}
+
+h2{
+font-size:2rem;
+}
+
+}
+
+/* Mobile */
+
+@media (max-width:768px){
+
+nav{
+flex-direction:column;
+gap:10px;
+padding:15px 20px;
+text-align:center;
+}
+
+nav ul{
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+}
+
+.hero h1{
+font-size:2rem;
+}
+
+.typing{
+font-size:1rem;
+}
+
+.profile{
+width:140px;
+height:140px;
+}
+
+section{
+padding:100px 20px;
+}
+
+.skills-grid{
+grid-template-columns:1fr;
+}
+
+.project-list{
+flex-direction:column;
+align-items:center;
+}
+
+.project-card{
+width:90%;
+}
+
+.contact-container{
+flex-direction:column;
+gap:30px;
+}
+
+}
+
+/* Small Mobile */
+
+@media (max-width:480px){
+
+.hero h1{
+font-size:1.7rem;
+}
+
+h2{
+font-size:1.6rem;
+}
+
+.profile{
+width:120px;
+height:120px;
+}
+
+nav h1{
+font-size:1.4rem;
+}
+
+}
+
 </style>
 </head>
 
 <body>
-
-<!-- NAVBAR -->
 
 <nav>
 <h1>Vaishnavi Tandel</h1>
@@ -281,18 +373,14 @@ color:#aaa;
 </ul>
 </nav>
 
-<!-- HERO -->
-
 <section class="hero">
 <h1>Hello, I'm <span>Vaishnavi</span></h1>
 <div class="typing" id="typing"></div>
 </section>
 
-<!-- ABOUT -->
-
 <section id="about">
 <div class="profile">
-<img src="vaish image.jpg">
+<img src="D:\portfolio\vaish image.jpg" alt="Vaishnavi">
 </div>
 
 <h2>About Me</h2>
@@ -305,16 +393,13 @@ user-friendly interfaces with smooth animations and responsive design.
 
 </section>
 
-<!-- SKILLS -->
-
 <section id="skills">
 
 <h2>My Skills</h2>
 
 <div class="skills-grid">
 
-
-  <div class="skill-card">
+<div class="skill-card">
 <h3>Languages</h3>
 <ul>
 <li>C</li>
@@ -322,6 +407,7 @@ user-friendly interfaces with smooth animations and responsive design.
 <li>Python</li>
 </ul>
 </div>
+
 <div class="skill-card">
 <h3>Frontend</h3>
 <ul>
@@ -363,35 +449,32 @@ user-friendly interfaces with smooth animations and responsive design.
 
 </section>
 
-<!-- PROJECTS -->
-
 <section id="projects" class="projects">
 
 <h2>Projects</h2>
 
 <div class="project-list">
-<div class="project-card">
-<h3>Multimodal copd prediction</h3>
-<p>Multimodal framework for early copd prediction and severity classification</p>
-</div>
 
+<div class="project-card">
+<h3>Multimodal COPD Prediction</h3>
+<p>Multimodal framework for early COPD prediction and severity classification.</p>
+</div>
 
 <div class="project-card">
 <h3>Inventory Management System</h3>
 <p>Stock management system with dashboard and product tracking.</p>
 <a href="https://github.com/VaishnaviTandel/Inventory-managment-system">GitHub</a>
 </div>
+
 <div class="project-card">
 <h3>Trekking Website</h3>
-<p>Responsive website for a trekking company with booking functionality.</p>
+<p>Responsive trekking company website with booking functionality.</p>
 <a href="https://github.com/VaishnaviTandel/Trekking-Website">GitHub</a>
 </div>
 
 </div>
 
 </section>
-
-<!-- CONTACT -->
 
 <section id="contact" class="contact-section">
 
@@ -405,13 +488,11 @@ user-friendly interfaces with smooth animations and responsive design.
 </div>
 
 <div>
-<p>
-LinkedIn:
+<p>LinkedIn:
 <a href="https://www.linkedin.com/in/vaishnavitandel/">Profile</a>
 </p>
 
-<p>
-GitHub:
+<p>GitHub:
 <a href="https://github.com/VaishnaviTandel">Repository</a>
 </p>
 </div>
@@ -426,8 +507,6 @@ GitHub:
 
 <script>
 
-/* ===== Scroll Animation ===== */
-
 const sections=document.querySelectorAll("section")
 
 const observer=new IntersectionObserver(entries=>{
@@ -441,8 +520,6 @@ entry.target.classList.add("visible")
 sections.forEach(section=>{
 observer.observe(section)
 })
-
-/* ===== Typing Animation ===== */
 
 const text=[
 "Full Stack Developer",
